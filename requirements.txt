@@ -1,0 +1,10 @@
+streamlit
+torch
+sentence-transformers
+numpy
+scikit-learn
+networkx
+nltk
+PyMuPDF
+deep_translator
+langdetect
