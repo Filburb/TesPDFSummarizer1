@@ -3,7 +3,14 @@ import nltk
 import numpy as np
 import networkx as nx
 from sentence_transformers import util
-# Hapus 'import streamlit as st' jika Anda menambahkannya, itu tidak seharusnya di sini.
+
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    print("MENGUNDUH: Data NLTK 'punkt' tidak ditemukan. Mengunduh...")
+    nltk.download('punkt')
+
 
 def clean_text(text):
     """
@@ -45,7 +52,9 @@ def semantic_summarize(text, model, num_sentences=5):
     cleaned_text = clean_text(text)
     
     # 2. Pecah Teks menjadi Kalimat
-    sentences = nltk.sent_tokenize(cleaned_text)
+    # Kita gunakan 'english' secara eksplisit karena ini yang diunduh 'punkt'
+    # Tokenizer ini cukup baik untuk çoğu bahasa (termasuk Indonesia)
+    sentences = nltk.sent_tokenize(cleaned_text, language='english')
     
     if len(sentences) <= num_sentences:
         return cleaned_text 
@@ -62,11 +71,7 @@ def semantic_summarize(text, model, num_sentences=5):
     try:
         scores = nx.pagerank(nx_graph)
     except nx.PowerIterationFailedConvergence:
-        # ==========================================================
-        # PERBAIKAN DI SINI: Ganti st.warning dengan print
-        # ==========================================================
         print("PERINGATAN: Analisis PageRank gagal, menggunakan fallback sederhana.")
-        # Fallback: skor = jumlah similaritas
         scores = {i: np.sum(sim_matrix_np[i]) for i in range(len(sentences))}
 
     # 6. Urutkan Kalimat berdasarkan Skor
