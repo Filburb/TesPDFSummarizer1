@@ -7,11 +7,11 @@ from model_loader import load_model
 from summarizer import semantic_summarize
 from translator import translate_to_indonesian
 
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    st.info("Mengunduh data NLTK (punkt)...")
-    nltk.download('punkt', quiet=True)
+# Konfigurasi halaman Streamlit
+st.set_page_config(page_title="Semantic Summarizer (MiniLM)", layout="centered")
+
+# Pastikan path nltk tersedia
+nltk.data.path.append("nltk_data")
 
 @st.cache_resource
 def get_model_cached():
@@ -21,19 +21,18 @@ def get_model_cached():
 with st.spinner("Memuat model summarizer (MiniLM)..."):
     model = get_model_cached()
 
+
 def extract_text_from_pdf(file):
     """Mengambil teks dari seluruh halaman PDF"""
-    text = ""
-    with fitz.open(stream=file.read(), filetype="pdf") as doc:
-        for page in doc:
-            text += page.get_text("text") + "\n"
+    file_bytes = file.read()
+    with fitz.open(stream=file_bytes, filetype="pdf") as doc:
+        text = "\n".join(page.get_text("text") for page in doc)
     return text.strip()
+
 
 # ======================
 # FRONTEND
 # ======================
-st.set_page_config(page_title="Semantic Summarizer (MiniLM)", layout="centered")
-
 st.title("📄 Semantic Text Summarizer")
 st.write("""
 Aplikasi ini menggunakan **SentenceTransformer** (`paraphrase-multilingual-MiniLM-L12-v2`)
@@ -51,7 +50,6 @@ if uploaded_file is not None:
         with st.spinner("Mengekstrak teks dari PDF..."):
             input_text = extract_text_from_pdf(uploaded_file)
     else:
-        # Asumsikan encoding utf-8 untuk file txt
         try:
             input_text = uploaded_file.read().decode("utf-8")
         except UnicodeDecodeError:
@@ -71,17 +69,14 @@ num_sentences = length_map[summary_length]
 if st.button("🔍 Ringkas Teks"):
     if input_text.strip():
         try:
-            # 1. Deteksi Bahasa
-            lang = detect(input_text[:500]) # Ambil 500 karakter pertama untuk deteksi
+            lang = detect(input_text[:500])
         except LangDetectException:
-            lang = "en" # Default ke bahasa Inggris jika deteksi gagal
+            lang = "en"
             st.warning("Gagal mendeteksi bahasa, diasumsikan Bahasa Inggris.")
 
-        # 2. Meringkas Teks (Secara Semantik)
         with st.spinner("Menganalisis dan meringkas teks..."):
             summary = semantic_summarize(input_text, model, num_sentences=num_sentences)
 
-        # 3. Menerjemahkan (HANYA JIKA BUKAN 'id')
         if lang == 'id':
             summary_final = summary
             st.success("Ringkasan selesai!")
@@ -90,11 +85,9 @@ if st.button("🔍 Ringkas Teks"):
                 summary_final = translate_to_indonesian(summary)
             st.success(f"Ringkasan (diterjemahkan dari '{lang}') selesai!")
 
-        # 4. Tampilkan Hasil
         st.subheader("Hasil Ringkasan (Bahasa Indonesia):")
         st.text_area("Output:", summary_final, height=250)
 
-        # Unduh hasil ringkasan
         buffer = io.BytesIO()
         buffer.write(summary_final.encode("utf-8"))
         buffer.seek(0)
