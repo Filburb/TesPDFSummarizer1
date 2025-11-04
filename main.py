@@ -33,7 +33,7 @@ def extract_text_from_pdf(file):
 # ======================
 # FRONTEND
 # ======================
-st.title("📄 Semantic Text Summarizer")
+st.title("Semantic Text Summarizer")
 st.write("""
 Aplikasi ini menggunakan **SentenceTransformer** (`paraphrase-multilingual-MiniLM-L12-v2`)
 untuk membuat ringkasan berbasis makna (semantik).
