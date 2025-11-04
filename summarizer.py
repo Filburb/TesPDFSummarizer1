@@ -3,13 +3,8 @@ import nltk
 import numpy as np
 import networkx as nx
 from sentence_transformers import util
-import os  # <-- Tambahkan import ini
+import os  
 
-# ==========================================================
-# PERBAIKAN FINAL NLTK:
-# ==========================================================
-# 1. Tentukan path LOKAL di dalam proyek kita
-#    Ini akan membuat folder 'nltk_data' di sebelah summarizer.py
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 LOCAL_NLTK_DATA = os.path.join(SCRIPT_DIR, 'nltk_data')
 
