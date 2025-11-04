@@ -7,7 +7,6 @@ from model_loader import load_model
 from summarizer import semantic_summarize
 from translator import translate_to_indonesian
 
-nltk.download('punkt')
 
 @st.cache_resource
 def get_model_cached():
