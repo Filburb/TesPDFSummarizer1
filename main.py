@@ -7,6 +7,11 @@ from model_loader import load_model
 from summarizer import semantic_summarize
 from translator import translate_to_indonesian
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    st.info("Mengunduh data NLTK (punkt)...")
+    nltk.download('punkt', quiet=True)
 
 @st.cache_resource
 def get_model_cached():
