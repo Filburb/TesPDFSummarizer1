@@ -35,9 +35,9 @@ git clone https://github.com/Filburb/TesPDFSummarizer1.git
 cd TesPDFSummarizer1
 
 2. Buat dan Aktifkan Virtual Environment
-python -m venv venv
-source venv/bin/activate        # di Linux/Mac
-venv\Scripts\activate           # di Windows
+- python -m venv venv
+- source venv/bin/activate        # di Linux/Mac
+- venv\Scripts\activate           # di Windows
 
 3. Instal Dependensi
 pip install -r requirements.txt
