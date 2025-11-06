@@ -15,7 +15,10 @@ Kelompok 13:
 - 221113189-Kevin Wijaya
 
 url aplikasi
-https://tespdfsummarizer1-pdpvlufzgavco6rfvbws4a.streamlit.app/
+- https://tespdfsummarizer1-pdpvlufzgavco6rfvbws4a.streamlit.app/
+
+url video
+- https://mikroskilacid-my.sharepoint.com/:v:/g/personal/221112207_students_mikroskil_ac_id/Eem5Lve0kzJMqWOfAZ7YpasB_bgada9VIgL5xl2DNbfW4A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5vDhhf
 
 ##  Fitur Utama
 - **Multilingual Support:** Dapat meringkas teks dalam berbagai bahasa (Inggris, Indonesia, dll).  
