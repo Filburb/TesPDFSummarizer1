@@ -8,7 +8,7 @@ from summarizer import semantic_summarize
 from translator import translate_to_indonesian
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title="TextSummarizer (MiniLM)", layout="centered")
+st.set_page_config(page_title="TextSummarizer", layout="centered")
 
 # path nltk tersedia
 nltk.data.path.append("nltk_data")
@@ -18,7 +18,7 @@ def get_model_cached():
     """Memuat model menggunakan cache Streamlit."""
     return load_model()
 
-with st.spinner("Memuat model summarizer (MiniLM)..."):
+with st.spinner("Memuat model summarizer ..."):
     model = get_model_cached()
 
 
@@ -33,7 +33,7 @@ def extract_text_from_pdf(file):
 # ======================
 # FRONTEND
 # ======================
-st.title("Semantic Text Summarizer")
+st.title("Text Summarizer")
 st.write("""
 Aplikasi ini menggunakan (`paraphrase-multilingual-MiniLM-L12-v2`)
 untuk membuat ringkasan.
@@ -101,4 +101,4 @@ if st.button("Ringkas Teks"):
         st.warning("Masukkan teks terlebih dahulu sebelum meringkas.")
 
 st.markdown("---")
-st.caption("Model: paraphrase-multilingual-MiniLM-L12-v2 (Semantic TextRank) + GoogleTranslator.")
+st.caption("Model: paraphrase-multilingual-MiniLM-L12-v2 + GoogleTranslator.")
