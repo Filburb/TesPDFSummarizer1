@@ -8,9 +8,9 @@ from summarizer import semantic_summarize
 from translator import translate_to_indonesian
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title="Semantic Summarizer (MiniLM)", layout="centered")
+st.set_page_config(page_title="TextSummarizer (MiniLM)", layout="centered")
 
-# Pastikan path nltk tersedia
+# path nltk tersedia
 nltk.data.path.append("nltk_data")
 
 @st.cache_resource
@@ -35,8 +35,8 @@ def extract_text_from_pdf(file):
 # ======================
 st.title("Semantic Text Summarizer")
 st.write("""
-Aplikasi ini menggunakan **SentenceTransformer** (`paraphrase-multilingual-MiniLM-L12-v2`)
-untuk membuat ringkasan berbasis makna (semantik).
+Aplikasi ini menggunakan (`paraphrase-multilingual-MiniLM-L12-v2`)
+untuk membuat ringkasan.
 """)
 
 # Input text area
@@ -66,7 +66,7 @@ length_map = {"Pendek (3 kalimat)": 3, "Sedang (5 kalimat)": 5, "Panjang (8 kali
 num_sentences = length_map[summary_length]
 
 # Tombol ringkas
-if st.button("🔍 Ringkas Teks"):
+if st.button("Ringkas Teks"):
     if input_text.strip():
         try:
             lang = detect(input_text[:500])

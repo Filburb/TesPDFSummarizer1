@@ -3,7 +3,7 @@ from deep_translator import GoogleTranslator
 def translate_to_indonesian(text: str) -> str:
     """
     Menerjemahkan teks apa pun ke Bahasa Indonesia
-    menggunakan GoogleTranslator (tanpa API key).
+    menggunakan GoogleTranslator.
     """
     if not text.strip():
         return ""
