@@ -31,8 +31,7 @@ https://tespdfsummarizer1-pdpvlufzgavco6rfvbws4a.streamlit.app/
 environment  python 3.10
 
 1. Clone Repositori
-git clone https://github.com/Filburb/TesPDFSummarizer1.git
-cd TesPDFSummarizer1
+- git clone https://github.com/Filburb/TesPDFSummarizer1.git
 
 2. Buat dan Aktifkan Virtual Environment
 - python -m venv venv
@@ -40,13 +39,13 @@ cd TesPDFSummarizer1
 - venv\Scripts\activate           # di Windows
 
 3. Instal Dependensi
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 4. Jalankan Aplikasi
-streamlit run main.py
+- streamlit run main.py
 
 5. Akses Aplikasi
-http://localhost:8501
+- http://localhost:8501
 
 
 
