@@ -4,8 +4,7 @@ import networkx as nx
 import nltk
 from sentence_transformers import util
 
-# Pastikan NLTK tersedia
-nltk.download('punkt', quiet=True)
+nltk.data.path.append("nltk_data")
 
 def clean_text(text):
     text = re.sub(r"[\n\t\r]+", " ", text)
