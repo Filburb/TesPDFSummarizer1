@@ -11,8 +11,8 @@ Pengguna dapat:
 - Mengunduh hasil ringkasan dalam format `.txt`.
 
 Kelompok 13:
-221112207-Filbert Wijaya
-221113189-Kevin Wijaya
+- 221112207-Filbert Wijaya
+- 221113189-Kevin Wijaya
 
 url aplikasi
 https://tespdfsummarizer1-pdpvlufzgavco6rfvbws4a.streamlit.app/
