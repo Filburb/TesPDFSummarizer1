@@ -15,7 +15,7 @@ Kelompok 13:
 - 221113189-Kevin Wijaya
 
 url onedrive
--https://mikroskilacid-my.sharepoint.com/:f:/g/personal/221112207_students_mikroskil_ac_id/EtH87cV1vddDqh3IWKjXnE4B_k7UAeSioXBYd6VsAGW28g?e=XdGXBD
+- https://mikroskilacid-my.sharepoint.com/:f:/g/personal/221112207_students_mikroskil_ac_id/EtH87cV1vddDqh3IWKjXnE4B_k7UAeSioXBYd6VsAGW28g?e=XdGXBD
 
 url aplikasi
 - https://tespdfsummarizer1-pdpvlufzgavco6rfvbws4a.streamlit.app/
